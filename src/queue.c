@@ -1,5 +1,11 @@
 #include "queue.h"
 #include <string.h>
+char peek(struct FIFOqueue queue){
+    return queue.queue[queue.head];
+}
+int size(struct FIFOqueue queue){
+    return queue.item_count;
+}
 bool isEmpty(struct FIFOqueue queue) {
     return (queue.item_count==0);
 }
@@ -21,7 +27,9 @@ void insert(struct FIFOqueue* queue, char* data) {
 }
 
 int removeData(struct FIFOqueue* queue) {
-    char data = queue->queue[queue->head++];
+    int data = queue->queue[queue->head];
+    queue->queue[queue->head]=0;
+    queue->head++;
     if(queue->head ==MAX){
         queue->head =0;
     }
@@ -37,9 +45,11 @@ void read_queue(struct FIFOqueue queue){
     }
         printf("]\n ");
 }
-int main(){
+/*int main(){
     struct FIFOqueue queue;
     queue.tail =-1;
+    queue.head =0;
+    queue.item_count =0;
     insert(&queue,"A");
     read_queue(queue);
     insert(&queue,"B");
@@ -50,4 +60,8 @@ int main(){
     read_queue(queue);
     insert(&queue,"E");
     read_queue(queue);
-}
+    printf("\t%c\n", peek(queue));
+    read_queue(queue);
+    removeData(&queue);
+    read_queue(queue);
+} */
