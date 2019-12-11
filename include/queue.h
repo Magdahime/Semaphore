@@ -11,7 +11,7 @@ struct FIFOqueue{
     int head;
     int tail;
     int item_count;
-}queue;
+};
 
 char peek(struct FIFOqueue queue);
 int size(struct FIFOqueue queue);

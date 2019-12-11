@@ -43,7 +43,7 @@ void read_queue(struct FIFOqueue queue){
         if(queue.queue[i]<65 ||queue.queue[i]> 90) printf("_ ");
         else printf("%c ", queue.queue[i]);
     }
-        printf("]\n ");
+        printf("]\n");
 }
 /*int main(){
     struct FIFOqueue queue;
